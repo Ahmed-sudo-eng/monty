@@ -1,11 +1,11 @@
 #include "monty.h"
 
-/*
- * main - 
- * @argc:
- * @argv:
+/**
+ * main - interpreter for monty scripting language
+ * @argc: argument count
+ * @argv: argument vector
  *
- * Return:
+ * Return: On success (0) and (1) on failure
  */
 int main(int argc, char *argv[])
 {
@@ -33,12 +33,13 @@ int main(int argc, char *argv[])
 	/* Main Programme */
 	while ((_getline(&line, &len, stream)) != -1)
 	{
-		cmd = strtok(line, " \n");
-		arg = strtok(NULL, " \n");
+		cmd = strtok(line, " \n\t");
+		arg = strtok(NULL, " \n\t");
 
-		if (cmd[0] == 'p' && cmd[1] == 'u' && cmd[2] == 's' && cmd[3] =='h')
+		if (cmd[0] == 'p' && cmd[1] == 'u' && cmd[2] == 's' && cmd[3] == 'h')
 			push(&head, atoi(arg));
-		if (cmd[0] == 'p' && cmd[1] == 'a' && cmd[2] == 'l' && cmd[3] =='l')
+		if (cmd[0] == 'p' && cmd[1] == 'a' && cmd[2] == 'l'
+				  && cmd[3] == 'l')
 			pall(head);
 
 	}
