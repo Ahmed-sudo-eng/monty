@@ -33,8 +33,10 @@ int main(int argc, char *argv[])
 	/* Main Programme */
 	while ((_getline(&line, &len, stream)) != -1)
 	{
-		cmd = strtok(line, " \n\t");
-		arg = strtok(NULL, " \n\t");
+		cmd = strtok(line, " \n");
+		if (cmd == NULL)
+			continue;
+		arg = strtok(NULL, " \n");
 
 		if (cmd[0] == 'p' && cmd[1] == 'u' && cmd[2] == 's' && cmd[3] == 'h')
 			push(&head, atoi(arg));
