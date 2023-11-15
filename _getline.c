@@ -1,33 +1,55 @@
 #include "monty.h"
+#if !HAVE_GETLINE
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <errno.h>
+#include <string.h>
 
-/**
- * _getline - reads an entire line from stream, storing the address of the
- * buffer containing the text into *lineptr, The buffer is null-terminated
- * and includes the newline character, if one was found
- * @lineptr: a null-terminated buffer that _gertline will use to store the text
- * @n: the size of the buffer
- * @stream: a pointer to an open file that _getline will read
- *
- * Return: On Success, getline return the number of characters read, including
- * the delimiter charcter, but not including the terminating null byte ('\0')
- * and return -1 on failure to read a line (including end-of-file condition).
- */
-int _getline(char **lineptr, __attribute__((unused))size_t *n, FILE *stream)
+ssize_t getdelim(char **buf, size_t *bufsiz, int delimiter, FILE *fp)
 {
-	int c;
-	int i = 0;
-	char *buf = malloc(1024);
+	char *ptr, *eptr;
 
-
-	while (c != 10)
+	if (*buf == NULL || *bufsiz == 0)
 	{
-		c = getc(stream);
-		if (c == EOF)
-			return (-1);
-		buf[i] = c;
-		i++;
+		*bufsiz = BUFSIZ;
+		if ((*buf = malloc(*bufsiz)) == NULL)
+			return -1;
 	}
-	*lineptr = buf;
 
-	return (i);
+	for (ptr = *buf, eptr = *buf + *bufsiz;;)
+	{
+		int c = fgetc(fp);
+		if (c == -1)
+		{
+			if (feof(fp))
+				return ptr == *buf ? -1 : ptr - *buf;
+			else
+				return -1;
+		}
+		*ptr++ = c;
+		if (c == delimiter)
+		{
+			*ptr = '\0';
+			return ptr - *buf;
+		}
+		if (ptr + 2 >= eptr)
+		{
+			char *nbuf;
+			size_t nbufsiz = *bufsiz * 2;
+			ssize_t d = ptr - *buf;
+			if ((nbuf = realloc(*buf, nbufsiz)) == NULL)
+				return -1;
+			*buf = nbuf;
+			*bufsiz = nbufsiz;
+			eptr = nbuf + nbufsiz;
+			ptr = nbuf + d;
+		}
+	}
 }
+
+int _getline(char **buf, size_t *bufsiz, FILE *fp)
+{
+	return getdelim(buf, bufsiz, '\n', fp);
+}
+#endif

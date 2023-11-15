@@ -37,5 +37,6 @@ typedef struct instruction_s
 
 void push(stack_t **head, int element);
 void pall(stack_t *head);
-int _getline(char **lineptr, size_t *n, FILE *stream);
+void free_stack(stack_t *head);
+int _getline(char **buf, size_t *bufsiz, FILE *fp);
 #endif

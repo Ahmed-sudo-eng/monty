@@ -41,9 +41,10 @@ int main(int argc, char *argv[])
 		if (cmd[0] == 'p' && cmd[1] == 'a' && cmd[2] == 'l' && cmd[3] =='l')
 			pall(head);
 
-		free(line);
 	}
 
+	free(line);
+	free_stack(head);
 	fclose(stream);
 	return (0);
 }
