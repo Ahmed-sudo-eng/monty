@@ -56,6 +56,8 @@ int main(int argc, char *argv[])
 			add(head, lineNumber);
 		else if (opcode[0] == 's' && opcode[1] == 'u' && opcode[2] == 'b')
 			sub(head, lineNumber);
+		else if (opcode[0] == 'd' && opcode[1] == 'i' && opcode[2] == 'v')
+			divi(head, lineNumber);
 		else if (opcode[0] == 'n' && opcode[1] == 'o' && opcode[2] == 'p')
 		{
 			lineNumber++;
