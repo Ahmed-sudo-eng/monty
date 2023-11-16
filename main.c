@@ -36,7 +36,10 @@ int main(int argc, char *argv[])
 	{
 		opcode = strtok(line, " \n");
 		if (opcode == NULL)
+		{
+			lineNumber++;
 			continue;
+		}
 		arg = strtok(NULL, " \n");
 
 		if (opcode[0] == 'p' && opcode[1] == 'u' && opcode[2] == 's' && opcode[3] == 'h')
@@ -44,7 +47,7 @@ int main(int argc, char *argv[])
 		else if (opcode[0] == 'p' && opcode[1] == 'a' && opcode[2] == 'l' && opcode[3] == 'l')
 			pall(head);
 		else if (opcode[0] == 'p' && opcode[1] == 'i' && opcode[2] == 'n' && opcode[3] == 't')
-			pint(head);
+			pint(head, lineNumber);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, opcode);
