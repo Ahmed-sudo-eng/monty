@@ -10,8 +10,9 @@
 int main(int argc, char *argv[])
 {
 	FILE *stream;
-	char *line = NULL;
-	size_t len = 0;
+	/*char *line = NULL;*/
+	char *line = malloc(512);
+	/*size_t len = 0;*/
 	char *fileName;
 	char *opcode = NULL;
 	char *arg = NULL;
@@ -32,7 +33,8 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	/* Main Programme */
-	while ((_getline(&line, &len, stream)) != -1)
+	/*while ((_getline(&line, &len, stream)) != -1)*/
+	while ((fgets(line, 256, stream)) != NULL)
 	{
 		opcode = strtok(line, " \n");
 		if (opcode == NULL)
