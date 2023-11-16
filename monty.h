@@ -45,6 +45,7 @@ void mul(stack_t *head, int lineNumber);
 void mod(stack_t *head, int lineNumber);
 void divi(stack_t *head, int lineNumber);
 void pchar(stack_t *head, int lineNumber);
+void pstr(stack_t *head);
 void pall(stack_t *head);
 void free_stack(stack_t *head);
 #endif
