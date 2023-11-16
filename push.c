@@ -12,6 +12,11 @@ void push(stack_t **head, int element)
 	stack_t *newNode = (stack_t *) malloc(sizeof(stack_t));
 	stack_t *current = *head;
 
+	if (newNode == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	if (*head == NULL)
 	{
 		newNode->n = element;
