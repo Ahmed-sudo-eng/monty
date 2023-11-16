@@ -41,6 +41,7 @@ void pop(stack_t **head, int lineNumber);
 void swap(stack_t *head, int lineNumber);
 void add(stack_t *head, int lineNumber);
 void sub(stack_t *head, int lineNumber);
+void mul(stack_t *head, int lineNumber);
 void divi(stack_t *head, int lineNumber);
 void pall(stack_t *head);
 void free_stack(stack_t *head);
