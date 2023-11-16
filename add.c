@@ -15,7 +15,7 @@ void add(stack_t *head, int lineNumber)
 	/* If the stack contains less than two elements */
         if (head == NULL || head->next == NULL)
         {
-                fprintf(stderr, "L%d: can't add, stack too short", lineNumber);
+                fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
                 exit(EXIT_FAILURE);
         }
         /* ELSE */
