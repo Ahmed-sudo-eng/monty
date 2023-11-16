@@ -47,5 +47,6 @@ void divi(stack_t *head, int lineNumber);
 void pchar(stack_t *head, int lineNumber);
 void pstr(stack_t *head);
 void pall(stack_t *head);
+void rot1(stack_t **head);
 void free_stack(stack_t *head);
 #endif
