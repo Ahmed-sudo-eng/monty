@@ -52,6 +52,8 @@ int main(int argc, char *argv[])
 			pop(&head, lineNumber);
 		else if (opcode[0] == 's' && opcode[1] == 'w' && opcode[2] == 'a' && opcode[3] == 'p')
 			swap(head, lineNumber);
+		else if (opcode[0] == 'a' && opcode[1] == 'd' && opcode[2] == 'd')
+			add(head, lineNumber);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, opcode);
