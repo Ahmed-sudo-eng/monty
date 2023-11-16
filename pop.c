@@ -21,7 +21,7 @@ void pop(stack_t **head, int lineNumber)
 	/* If stack has just one element */
 	if (top->next == NULL)
 	{
-		/*free(top);*/
+		free(top);
 		*head = NULL;
 		return;
 	}
