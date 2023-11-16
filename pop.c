@@ -30,6 +30,6 @@ void pop(stack_t **head, int lineNumber)
 		top = top->next;
 	newTop = top->prev;
 	newTop->next = NULL;
-	top->prev= NULL;
+	top->prev = NULL;
 	free(top);
 }
