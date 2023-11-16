@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 			lineNumber++;
 			continue;
 		}
-		if (opcode[0] == '#')
+		if (line[0] == '#')
 		{
 			lineNumber++;
 			continue;
