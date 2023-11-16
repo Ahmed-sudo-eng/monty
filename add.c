@@ -13,12 +13,12 @@ void add(stack_t *head, int lineNumber)
 	stack_t *temp = NULL;
 
 	/* If the stack contains less than two elements */
-        if (head == NULL || head->next == NULL)
-        {
-                fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
-                exit(EXIT_FAILURE);
-        }
-        /* ELSE */
+	if (head == NULL || head->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
+		exit(EXIT_FAILURE);
+	}
+	/* ELSE */
 	while (current->next->next != NULL)
 		current = current->next;
 	current->n = current->n + current->next->n;
