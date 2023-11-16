@@ -48,6 +48,8 @@ int main(int argc, char *argv[])
 			pall(head);
 		else if (opcode[0] == 'p' && opcode[1] == 'i' && opcode[2] == 'n' && opcode[3] == 't')
 			pint(head, lineNumber);
+		else if (opcode[0] == 'p' && opcode[1] == 'o' && opcode[2] == 'p')
+			pop(&head, lineNumber);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, opcode);
