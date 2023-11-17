@@ -25,7 +25,7 @@ void mod(stack_t *head, int lineNumber)
 	/* Division by 0 Error */
 	if (current->next->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero", lineNumber);
+		fprintf(stderr, "L%d: division by zero\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 	current->n = current->n % current->next->n;
