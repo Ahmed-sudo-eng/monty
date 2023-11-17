@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 					  && opcode[4] == 'r')
 			pchar(head, lineNumber);
 
-		else if (opcode[0] == 'n' && opcode[1] == 'o' && opcode[2] == 'p')
+		else if (strlen(opcode) == 3 && opcode[0] == 'n' && opcode[1] == 'o' && opcode[2] == 'p')
 		{
 			lineNumber++;
 			continue;
