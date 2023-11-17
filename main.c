@@ -87,7 +87,8 @@ int main(int argc, char *argv[])
 		else if (strlen(opcode) == 3 && opcode[0] == 'p' && opcode[1] == 'o' && opcode[2] == 'p')
 			pop(&head, lineNumber);
 
-		else if (opcode[0] == 's' && opcode[1] == 'w' && opcode[2] == 'a' && opcode[3] == 'p')
+		else if (strlen(opcode) == 4 && opcode[0] == 's' && opcode[1] == 'w' && opcode[2] == 'a'
+				                                                     && opcode[3] == 'p')
 			swap(head, lineNumber);
 
 		else if (opcode[0] == 'a' && opcode[1] == 'd' && opcode[2] == 'd')
