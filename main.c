@@ -82,14 +82,14 @@ int main(int argc, char *argv[])
 			pall(head);
 
 		else if (strlen(opcode) == 4 && opcode[0] == 'p' && opcode[1] == 'i' && opcode[2] == 'n' 
-				                                                     && opcode[3] == 't')
+				             && opcode[3] == 't')
 			pint(head, lineNumber);
 
 		else if (strlen(opcode) == 3 && opcode[0] == 'p' && opcode[1] == 'o' && opcode[2] == 'p')
 			pop(&head, lineNumber);
 
 		else if (strlen(opcode) == 4 && opcode[0] == 's' && opcode[1] == 'w' && opcode[2] == 'a'
-				                                                     && opcode[3] == 'p')
+				             && opcode[3] == 'p')
 			swap(head, lineNumber);
 
 		else if (strlen(opcode) == 3 && opcode[0] == 'a' && opcode[1] == 'd' && opcode[2] == 'd')
@@ -107,7 +107,8 @@ int main(int argc, char *argv[])
 		else if (strlen(opcode) == 3 && opcode[0] == 'm' && opcode[1] == 'o' && opcode[2] == 'd')
 			mod(head, lineNumber);
 
-		else if (opcode[0] == 'p' && opcode[1] == 's' && opcode[2] == 't' && opcode[3] == 'r')
+		else if (strlen(opcode) == 4 && opcode[0] == 'p' && opcode[1] == 's' && opcode[2] == 't'
+				             && opcode[3] == 'r')
 			pstr(head);
 
 		else if (opcode[0] == 'r' && opcode[1] == 'o' && opcode[2] == 't' && opcode[3] == '1')
