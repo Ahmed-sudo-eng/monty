@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * rot1 - a function that rotates the stack to the top
+ * rotl - a function that rotates the stack to the top
  * @head: points to first element
  *
  * Return: Nothing
  */
-void rot1(stack_t **head)
+void rotl(stack_t **head)
 {
 	stack_t *current = *head;
 	stack_t *temp = *head;
