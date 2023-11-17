@@ -15,10 +15,10 @@ void rotl(stack_t **head)
 
 	if (*head == NULL || (*head)->next == NULL)
 		return;
+	nt = current->n;
 	while (current->next != NULL)
 		current = current->next;
 	newTop = (stack_t *) malloc(sizeof(stack_t));
-	nt = current->n;
 	*head = temp->next;
 	(*head)->prev = NULL;
 	free(temp);
