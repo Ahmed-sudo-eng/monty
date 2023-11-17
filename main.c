@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 	char *arg = NULL;
 	stack_t *head = NULL;
 	int lineNumber = 1;
+	size_t i;
 
 	if (argc != 2)
 	{
@@ -49,11 +50,31 @@ int main(int argc, char *argv[])
 		if (strlen(opcode) == 4 &&  opcode[0] == 'p' && opcode[1] == 'u'
 				        && opcode[2] == 's' && opcode[3] == 'h')
 		{
+			/* Check if arg is not an integer */
+			i = 0;
+			while (i < strlen(arg))
+			{
+				if ((isdigit(arg[i])) == 0)
+				{
+					/* Exclude negative sign */
+					if (arg[i] == '-')
+					{
+						i++;
+						continue;
+					}
+					/* Print Error message and exit */
+					fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
+					exit(EXIT_FAILURE);
+				}
+				i++;
+			}
+			/* Check if arg is NULL */
 			if (arg == NULL)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
 				exit(EXIT_FAILURE);
 			}
+			/* Default */
 			else
 				push(&head, atoi(arg));
 		}
