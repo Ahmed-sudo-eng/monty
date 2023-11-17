@@ -50,6 +50,12 @@ int main(int argc, char *argv[])
 		if (strlen(opcode) == 4 &&  opcode[0] == 'p' && opcode[1] == 'u'
 				        && opcode[2] == 's' && opcode[3] == 'h')
 		{
+			/* Check if arg is NULL */
+			if (arg == NULL)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
+				exit(EXIT_FAILURE);
+			}
 			/* Check if arg is not an integer */
 			i = 0;
 			while (i < strlen(arg))
@@ -68,15 +74,8 @@ int main(int argc, char *argv[])
 				}
 				i++;
 			}
-			/* Check if arg is NULL */
-			if (arg == NULL)
-			{
-				fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
-				exit(EXIT_FAILURE);
-			}
 			/* Default */
-			else
-				push(&head, atoi(arg));
+			push(&head, atoi(arg));
 		}
 		else if (opcode[0] == 'p' && opcode[1] == 'a' && opcode[2] == 'l' && opcode[3] == 'l')
 			pall(head);
