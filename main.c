@@ -47,7 +47,15 @@ int main(int argc, char *argv[])
 		arg = strtok(NULL, " \n");
 
 		if (opcode[0] == 'p' && opcode[1] == 'u' && opcode[2] == 's' && opcode[3] == 'h')
-			push(&head, atoi(arg));
+		{
+			if (arg == NULL)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
+				exit(EXIT_FAILURE);
+			}
+			else
+				push(&head, atoi(arg));
+		}
 		else if (opcode[0] == 'p' && opcode[1] == 'a' && opcode[2] == 'l' && opcode[3] == 'l')
 			pall(head);
 		else if (opcode[0] == 'p' && opcode[1] == 'i' && opcode[2] == 'n' && opcode[3] == 't')
