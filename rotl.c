@@ -11,10 +11,13 @@ void rotl(stack_t **head)
 	stack_t *current = *head;
 	stack_t *temp = *head;
 	stack_t *newTop = (stack_t *) malloc(sizeof(stack_t));
-	int nt = current->n;
+	int nt;
 
+	if (*head == NULL)
+		return;
 	while (current->next != NULL)
 		current = current->next;
+	nt = current->n;
 	*head = temp->next;
 	(*head)->prev = NULL;
 	free(temp);
