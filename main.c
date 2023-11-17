@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 		else if (strlen(opcode) == 3 && opcode[0] == 's' && opcode[1] == 'u' && opcode[2] == 'b')
 			sub(head, lineNumber);
 
-		else if (opcode[0] == 'd' && opcode[1] == 'i' && opcode[2] == 'v')
+		else if (strlen(opcode) == 3 && opcode[0] == 'd' && opcode[1] == 'i' && opcode[2] == 'v')
 			divi(head, lineNumber);
 
 		else if (opcode[0] == 'm' && opcode[1] == 'u' && opcode[2] == 'l')
