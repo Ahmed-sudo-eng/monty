@@ -46,7 +46,8 @@ int main(int argc, char *argv[])
 		}
 		arg = strtok(NULL, " \n");
 
-		if (opcode[0] == 'p' && opcode[1] == 'u' && opcode[2] == 's' && opcode[3] == 'h')
+		if (strlen(opcode) == 4 &&  opcode[0] == 'p' && opcode[1] == 'u'
+				        && opcode[2] == 's' && opcode[3] == 'h')
 		{
 			if (arg == NULL)
 			{
