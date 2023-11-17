@@ -100,10 +100,10 @@ int main(int argc, char *argv[])
 		else if (strlen(opcode) == 3 && opcode[0] == 'd' && opcode[1] == 'i' && opcode[2] == 'v')
 			divi(head, lineNumber);
 
-		else if (opcode[0] == 'm' && opcode[1] == 'u' && opcode[2] == 'l')
+		else if (strlen(opcode) == 3 && opcode[0] == 'm' && opcode[1] == 'u' && opcode[2] == 'l')
 			mul(head, lineNumber);
 
-		else if (opcode[0] == 'm' && opcode[1] == 'o' && opcode[2] == 'd')
+		else if (strlen(opcode) == 3 && opcode[0] == 'm' && opcode[1] == 'o' && opcode[2] == 'd')
 			mod(head, lineNumber);
 
 		else if (opcode[0] == 'p' && opcode[1] == 's' && opcode[2] == 't' && opcode[3] == 'r')
