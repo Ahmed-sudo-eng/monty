@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 				                                                     && opcode[3] == 't')
 			pint(head, lineNumber);
 
-		else if (opcode[0] == 'p' && opcode[1] == 'o' && opcode[2] == 'p')
+		else if (strlen(opcode) == 3 && opcode[0] == 'p' && opcode[1] == 'o' && opcode[2] == 'p')
 			pop(&head, lineNumber);
 
 		else if (opcode[0] == 's' && opcode[1] == 'w' && opcode[2] == 'a' && opcode[3] == 'p')
