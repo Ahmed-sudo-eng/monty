@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 				                                                     && opcode[3] == 'p')
 			swap(head, lineNumber);
 
-		else if (opcode[0] == 'a' && opcode[1] == 'd' && opcode[2] == 'd')
+		else if (strlen(opcode) == 3 && opcode[0] == 'a' && opcode[1] == 'd' && opcode[2] == 'd')
 			add(head, lineNumber);
 
 		else if (opcode[0] == 's' && opcode[1] == 'u' && opcode[2] == 'b')
