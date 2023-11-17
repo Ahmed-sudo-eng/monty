@@ -13,7 +13,7 @@ void rotl(stack_t **head)
 	stack_t *newTop = NULL;
 	int nt;
 
-	if (*head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return;
 	while (current->next != NULL)
 		current = current->next;
