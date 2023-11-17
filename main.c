@@ -113,8 +113,8 @@ int main(int argc, char *argv[])
 		else if (opcode[0] == 'r' && opcode[1] == 'o' && opcode[2] == 't' && opcode[3] == '1')
 			rot1(&head);
 
-		else if (opcode[0] == 'p' && opcode[1] == 'c' && opcode[2] == 'h' && opcode[3] == 'a'
-					  && opcode[4] == 'r')
+		else if (strlen(opcode) == 5 && opcode[0] == 'p' && opcode[1] == 'c' && opcode[2] == 'h'
+				                                 && opcode[3] == 'a' && opcode[4] == 'r')
 			pchar(head, lineNumber);
 
 		else if (strlen(opcode) == 3 && opcode[0] == 'n' && opcode[1] == 'o' && opcode[2] == 'p')
