@@ -10,6 +10,8 @@ void pall(stack_t *head)
 {
 	stack_t *current = head;
 
+	if (head == NULL)
+		return;
 	while (current->next != NULL)
 		current = current->next;
 	while (current != NULL)
