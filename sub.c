@@ -22,7 +22,7 @@ void sub(stack_t *head, int lineNumber)
 	/* ELSE */
 	while (current->next->next != NULL)
 		current = current->next;
-	current->n = abs(current->next->n - current->n);
+	current->n = current->next->n - current->n;
 	temp = current->next;
 	current->next = NULL;
 	free(temp);
